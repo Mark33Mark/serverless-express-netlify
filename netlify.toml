@@ -1,0 +1,26 @@
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  autoLaunch=true
+  port = 8989
+
+[build]
+  # This will be run the site build
+  command = "npm run build"
+  
+  # This is the directory is publishing to netlify's CDN
+  publish = "build"
+
+  # functions build directory
+  functions = "functions-build"
+
+# [[redirects]]
+    #    from = "/react-express-ssr"
+    #    to = "/.netlify/functions/react-express-ssr"
+    #    status = 200
+    #    force = true
+
+    # force = true set in redirect to send all requests to your function even if content is found.
+    # As my root directory (public) has a index.html file, this file is served first without the 'force'
+    # setting to true.
